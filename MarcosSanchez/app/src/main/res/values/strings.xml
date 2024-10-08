@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">MarcosSanchez</string>
+    <string name="enviar">Enviar</string>
+    <string name="he_leido_los_terminos_y_estoy_de_acuerdo">He leido los terminos y estoy de acuerdo</string>
+    <string name="que_opinas">¿Qué opinas?:</string>
+    <string name="genero">Genero:</string>
+    <string name="femenino">Aventuras</string>
+    <string name="masculino">Accion</string>
+    <string name="nombre">Nombre:</string>
+    <string name="email">Email:</string>
+    <string name="name">Name</string>
+    <string name="he_leido_los_terminos_y_estoy_de_acuerdo_landscape">He leido los terminos y estoy de acuerdo</string>
+    <string name="que_opinas_landscape">¿Qué opinas?</string>
+    <string name="fecha_nacimiento_landscape">Fecha nacimiento:</string>
+    <string name="flecha_derecha_landscape"><![CDATA[->]]></string>
+    <string name="mas_landscape">+</string>
+    <string name="menos_landscape">-</string>
+    <string name="flacha_izquierda_landscape"><![CDATA[<-]]></string>
+    <string name="formulario_landscape">Formulario</string>
+    <string name="nombre_landscape">Nombre:</string>
+    <string name="name_landscape">Name</string>
+    <string name="email_landscape">Email</string>
+    <string name="genero_landscape">Genero:</string>
+    <string name="masculino_landscape">Masculino</string>
+    <string name="femenino_landscape">Femenino</string>
+    <string name="otro_landscape">Otro</string>
+    <string name="formulario">Formulario</string>
+    <string name="flechaIzquierda"><![CDATA[<-]]></string>
+    <string name="flechaDerecha"><![CDATA[->]]></string>
+    <string name="menosBoton">-</string>
+    <string name="fecha">Fecha Lanzamiento</string>
+    <string name="compañia">compañia</string>
+</resources>
