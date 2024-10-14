@@ -1,4 +1,5 @@
-package com.example.marcossanchez.UI.MainPantalla
+package com.example.marcossanchez.UI.mainPantalla
+
 
 import android.os.Bundle
 import android.widget.Toast
@@ -7,16 +8,18 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.marcossanchez.Data.Repository
-import com.example.marcossanchez.Domain.Modelo.Videojuego
-import com.example.marcossanchez.Domain.Usecases.Videojuegos.AñadirVideoJuego
-import com.example.marcossanchez.Domain.Usecases.Videojuegos.DeleteVideojuego
-import com.example.marcossanchez.Domain.Usecases.Videojuegos.GetVideoJuegos
-import com.example.marcossanchez.Domain.Usecases.Videojuegos.UpdateVideojuego
 import com.example.marcossanchez.R
-import com.example.marcossanchez.Utils.StringProvider
+import com.example.marcossanchez.data.Repository
 import com.example.marcossanchez.databinding.ActivityMainBinding
-import com.google.android.material.snackbar.Snackbar
+import com.example.marcossanchez.domain.Usecases.videojuegos.AñadirVideoJuego
+import com.example.marcossanchez.domain.Usecases.videojuegos.ComprobarVideojuego
+import com.example.marcossanchez.domain.Usecases.videojuegos.DeleteVideojuego
+import com.example.marcossanchez.domain.Usecases.videojuegos.GetVideoJuegos
+import com.example.marcossanchez.domain.Usecases.videojuegos.UpdateVideojuego
+import com.example.marcossanchez.domain.modelo.Videojuego
+import com.example.marcossanchez.utils.StringProvider
+
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -28,7 +31,8 @@ class MainActivity : AppCompatActivity() {
             AñadirVideoJuego(Repository),
             GetVideoJuegos(Repository),
             DeleteVideojuego(Repository),
-            UpdateVideojuego(Repository)
+            UpdateVideojuego(Repository),
+            ComprobarVideojuego(Repository)
         )
     }
 
@@ -54,13 +58,13 @@ class MainActivity : AppCompatActivity() {
                 viewModel.mostrarError()
             }
 
-            state.videojuego?.let { videojuego ->
+            state.videojuego.let { videojuego ->
                 binding.gamenameText.setText(videojuego.nombre)
                 binding.editTextDate.setText(videojuego.fecha)
                 binding.ratingBar.rating = videojuego.calificacion
                 when (videojuego.genero) {
-                    "Acción" -> binding.radioGroup.check(R.id.Accion)
-                    "Aventuras" -> binding.radioGroup.check(R.id.Aventura)
+                    "Accion" -> binding.radioGroup.check(R.id.Accion)
+                    "Aventura" -> binding.radioGroup.check(R.id.Aventura)
                     else -> binding.radioGroup.clearCheck()
                 }
             }
@@ -72,17 +76,18 @@ class MainActivity : AppCompatActivity() {
             enviarBoton.setOnClickListener {
                 if(checkBox.isChecked){
                     val selectedGenero = when (radioGroup.checkedRadioButtonId) {
-                        Accion.id -> "Aventuras"
-                        Aventura.id -> "Acción"
+                        Accion.id -> "Accion"
+                        Aventura.id -> "Aventura"
                         else -> "Otro"
                     }
                     viewModel.añadirVideoJuego( Videojuego(
-                        gamenameText.text.toString(),
+                        gamenameTextLayout.editText?.text.toString(),
                         selectedGenero,
                         editTextDate.text.toString(),
                         ratingBar.rating
-                    ))
-                    Snackbar.make(findViewById(android.R.id.content), "Usuario añadido", Snackbar.LENGTH_SHORT).show()
+                    )
+                    )
+                    checkBox.isChecked = false
                 }
             }
             izquierdaBoton.setOnClickListener {
@@ -97,31 +102,18 @@ class MainActivity : AppCompatActivity() {
             }
             upadteButton.setOnClickListener{
                 val selectedGenero = when (radioGroup.checkedRadioButtonId) {
-                    Accion.id -> "Aventuras"
-                    Aventura.id -> "Acción"
+                    Accion.id -> "Accion"
+                    Aventura.id -> "Aventura"
                     else -> "Otro"
                 }
                 viewModel.upadateVideoJuego( Videojuego(
-                    gamenameText.text.toString(),
+                    gamenameTextLayout.editText?.text.toString(),
                     selectedGenero,
-                    editTextDate.text.toString(),
+                    binding.editTextDate.text.toString(),
                     ratingBar.rating
                 ))
             }
 
-            upadteButton.setOnClickListener{
-                val selectedGenero = when (radioGroup.checkedRadioButtonId) {
-                    Accion.id -> "Aventuras"
-                    Aventura.id -> "Acción"
-                    else -> "Otro"
-                }
-                viewModel.upadateVideoJuego( Videojuego(
-                    gamenameText.text.toString(),
-                    selectedGenero,
-                    editTextDate.text.toString(),
-                    ratingBar.rating
-                ))
-            }
         }
     }
 }

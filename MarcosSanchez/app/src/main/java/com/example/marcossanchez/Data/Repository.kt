@@ -1,6 +1,6 @@
-package com.example.marcossanchez.Data
+package com.example.marcossanchez.data
 
-import com.example.marcossanchez.Domain.Modelo.Videojuego
+import com.example.marcossanchez.domain.modelo.Videojuego
 
 object Repository {
     private val videojuegos = mutableListOf<Videojuego>()
@@ -17,11 +17,6 @@ object Repository {
     fun añadirVideojuego(videojuego: Videojuego) =
         videojuegos.add(videojuego)
 
-    private val map = mutableMapOf<String, Videojuego>()
-
-    fun getVideojuegosSize(): Int {
-        return videojuegos.size
-    }
 
     fun borrarVideojuego(id: Int) {
         videojuegos.removeAt(id)
@@ -29,6 +24,10 @@ object Repository {
 
     fun updateVideojuego(id: Int, videojuego: Videojuego) {
         videojuegos[id] = videojuego
+    }
+
+    fun comprobarVideojuego(videojuego: Videojuego): Boolean {
+        return videojuegos.any { it.nombre == videojuego.nombre }
     }
 
 }

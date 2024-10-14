@@ -1,4 +1,4 @@
-package com.example.marcossanchez.Domain.Modelo
+package com.example.marcossanchez.domain.modelo
 
 data class  Videojuego(
     var nombre: String = "",

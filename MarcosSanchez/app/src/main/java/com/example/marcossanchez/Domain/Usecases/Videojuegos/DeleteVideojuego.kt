@@ -1,6 +1,6 @@
-package com.example.marcossanchez.Domain.Usecases.Videojuegos
+package com.example.marcossanchez.domain.Usecases.videojuegos
 
-import com.example.marcossanchez.Data.Repository
+import com.example.marcossanchez.data.Repository
 
 class DeleteVideojuego(private val repo : Repository) {
     operator fun invoke(id: Int) {

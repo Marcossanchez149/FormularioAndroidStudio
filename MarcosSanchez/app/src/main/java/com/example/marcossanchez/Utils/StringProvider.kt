@@ -1,4 +1,4 @@
-package com.example.marcossanchez.Utils
+package com.example.marcossanchez.utils
 
 import android.content.Context
 import androidx.annotation.StringRes
