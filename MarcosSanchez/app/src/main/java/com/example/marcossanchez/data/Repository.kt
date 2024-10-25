@@ -11,19 +11,25 @@ object Repository {
         videojuegos.add(Videojuego("Batman","Accion","1989",4.0f))
     }
     fun getVideojuegos(): List<Videojuego> {
-        return videojuegos
+        return videojuegos.toList()
     }
 
-    fun añadirVideojuego(videojuego: Videojuego) =
-        videojuegos.add(videojuego)
-
-
-    fun borrarVideojuego(id: Int) {
-        videojuegos.removeAt(id)
+    fun añadirVideojuego(videojuego: Videojuego): Boolean {
+      return videojuegos.add(videojuego)
     }
 
-    fun updateVideojuego(id: Int, videojuego: Videojuego) {
-        videojuegos[id] = videojuego
+
+    fun borrarVideojuego(videojuego: Videojuego) {
+        videojuegos.remove(videojuego)
+    }
+
+    fun updateVideojuego( videojuego: Videojuego) {
+        videojuegos.stream().filter({ it.nombre == videojuego.nombre }).findFirst().ifPresent { it ->
+            it.nombre = videojuego.nombre
+            it.genero = videojuego.genero
+            it.fecha = videojuego.fecha
+            it.calificacion = videojuego.calificacion
+        }
     }
 
     fun comprobarVideojuego(videojuego: Videojuego): Boolean {
