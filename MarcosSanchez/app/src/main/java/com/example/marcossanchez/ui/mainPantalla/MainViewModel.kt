@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.marcossanchez.domain.Usecases.videojuegos.GetVideoJuegos
+import com.example.marcossanchez.domain.usecases.videojuegos.GetVideoJuegos
 
 class MainViewModel(
     val getVideoJuegos: GetVideoJuegos,
@@ -26,8 +26,6 @@ class MainViewModel(
     fun mostrarError() {
         _uiState.value = _uiState.value?.copy(error = null)
     }
-
-
 
 }
 

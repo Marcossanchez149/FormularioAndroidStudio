@@ -11,7 +11,7 @@ import com.example.marcossanchez.R
 import com.example.marcossanchez.constantes.Constantes
 import com.example.marcossanchez.data.Repository
 import com.example.marcossanchez.databinding.ActivityAnadirBinding
-import com.example.marcossanchez.domain.Usecases.videojuegos.AñadirVideoJuego
+import com.example.marcossanchez.domain.usecases.videojuegos.AnadirVideoJuego
 import com.example.marcossanchez.domain.modelo.Videojuego
 import com.example.marcossanchez.ui.common.StringProvider
 import com.example.marcossanchez.ui.common.UiEvent
@@ -23,7 +23,7 @@ class AnadirJuegoActivity : AppCompatActivity() {
     private val viewModel: AnadirJuegoViewModel by viewModels {
         AnadirViewModelFactory(
             StringProvider.instance(this),
-            AñadirVideoJuego(Repository),
+            AnadirVideoJuego(Repository),
         )
     }
 
@@ -65,7 +65,7 @@ class AnadirJuegoActivity : AppCompatActivity() {
     private fun eventos() {
         with(binding) {
             addEnviarBotonAA.setOnClickListener {
-                viewModel.addVideojuego(
+               if( viewModel.addVideojuego(
                     Videojuego(
                         nombre = addGamenameTextAA.text.toString(),
                         genero = when (addRadioGroupAA.checkedRadioButtonId) {
@@ -76,7 +76,9 @@ class AnadirJuegoActivity : AppCompatActivity() {
                         fecha = editTextDateAA.text.toString(),
                         calificacion = addRatingBarAA.rating
                     )
-                )
+                )){
+                     finish()
+               }
             }
         }
     }

@@ -1,8 +1,6 @@
 package com.example.marcossanchez.domain.modelo
 
 
-
-
 data class Videojuego(
     var nombre: String = "",
     var genero: String = "",

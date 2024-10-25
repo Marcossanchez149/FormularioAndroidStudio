@@ -1,4 +1,4 @@
-package com.example.marcossanchez.domain.Usecases.videojuegos
+package com.example.marcossanchez.domain.usecases.videojuegos
 
 import com.example.marcossanchez.data.Repository
 import com.example.marcossanchez.domain.modelo.Videojuego

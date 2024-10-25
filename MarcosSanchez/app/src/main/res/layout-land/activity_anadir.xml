@@ -52,66 +52,67 @@
 
     <RadioGroup
         android:id="@+id/addRadioGroupAA"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.006"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
 
         <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/add_AccionAA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Accion"/>
+            android:text="@string/Accion" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/add_AventuraAA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Aventuras"/>
+            android:text="@string/Aventuras" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/add_OtroAA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Otro"/>
+            android:text="@string/Otro" />
     </RadioGroup>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="472dp"
+        android:layout_marginTop="28dp"
         android:text="@string/que_opinas"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addRadioGroupAA" />
+        app:layout_constraintTop_toBottomOf="@+id/add_gamenameTextLayout" />
 
     <RatingBar
         android:id="@+id/addRatingBarAA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="472dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.058" />
+        app:layout_constraintVertical_bias="0.096" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/add_enviarBotonAA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
         android:text="@string/enviar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/add_dateInputLayoutAA"
+        app:layout_constraintVertical_bias="0.864" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/add_dateInputLayoutAA"
@@ -129,16 +130,16 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/editTextDateAA"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:hint="@string/fecha"
         android:inputType="date"
         app:layout_constraintBottom_toTopOf="@+id/add_enviarBotonAA"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.966"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_dateInputLayoutAA"
-        app:layout_constraintVertical_bias="0.013" />
+        app:layout_constraintVertical_bias="0.212" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

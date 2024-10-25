@@ -14,7 +14,7 @@ object Repository {
         return videojuegos.toList()
     }
 
-    fun añadirVideojuego(videojuego: Videojuego): Boolean {
+    fun anadirVideojuego(videojuego: Videojuego): Boolean {
       return videojuegos.add(videojuego)
     }
 
@@ -24,12 +24,8 @@ object Repository {
     }
 
     fun updateVideojuego( videojuego: Videojuego) {
-        videojuegos.stream().filter({ it.nombre == videojuego.nombre }).findFirst().ifPresent { it ->
-            it.nombre = videojuego.nombre
-            it.genero = videojuego.genero
-            it.fecha = videojuego.fecha
-            it.calificacion = videojuego.calificacion
-        }
+        val index = videojuegos.indexOfFirst { it.nombre == videojuego.nombre }
+        videojuegos[index] = videojuego
     }
 
     fun comprobarVideojuego(videojuego: Videojuego): Boolean {

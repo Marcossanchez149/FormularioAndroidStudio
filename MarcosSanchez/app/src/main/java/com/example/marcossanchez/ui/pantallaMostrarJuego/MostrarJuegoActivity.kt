@@ -11,9 +11,9 @@ import com.example.marcossanchez.R
 import com.example.marcossanchez.constantes.Constantes
 import com.example.marcossanchez.data.Repository
 import com.example.marcossanchez.databinding.ActivityUpdateDeleteBinding
-import com.example.marcossanchez.domain.Usecases.videojuegos.GetVideoJuegos
-import com.example.marcossanchez.domain.Usecases.videojuegos.DeleteVideojuego
-import com.example.marcossanchez.domain.Usecases.videojuegos.UpdateVideojuego
+import com.example.marcossanchez.domain.usecases.videojuegos.GetVideoJuegos
+import com.example.marcossanchez.domain.usecases.videojuegos.DeleteVideojuego
+import com.example.marcossanchez.domain.usecases.videojuegos.UpdateVideojuego
 import com.example.marcossanchez.domain.modelo.Videojuego
 import com.example.marcossanchez.ui.common.UiEvent
 
@@ -80,7 +80,8 @@ class MostrarJuegoActivity : AppCompatActivity() {
     private fun eventos() {
         with(binding) {
             upadteButtonUD.setOnClickListener {
-                viewModel.updateVideojuego(Videojuego(
+               if( viewModel.updateVideojuego(
+                       Videojuego(
                     nombre = gamenameTextUD.text.toString(),
                     calificacion = ratingBarUD.rating,
                     fecha = editTextDateUD.text.toString(),
@@ -89,7 +90,10 @@ class MostrarJuegoActivity : AppCompatActivity() {
                         R.id.AventuraUD -> Constantes.AVENTURA
                         else -> Constantes.OTRO
                     }
-                ))
+                )
+                   )){
+                   finish()
+               }
             }
             borrarBotonUD.setOnClickListener {
                 viewModel.deleteVideojuego()

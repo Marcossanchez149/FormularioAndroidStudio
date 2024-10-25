@@ -4,7 +4,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.example.marcossanchez.R
 import com.example.marcossanchez.domain.modelo.Videojuego
-import com.example.marcossanchez.ui.mainPantalla.MainActivity
 import com.example.marcossanchez.ui.mainPantalla.VideojuegoItemViewholder
 
 class VideojuegoAdapter(

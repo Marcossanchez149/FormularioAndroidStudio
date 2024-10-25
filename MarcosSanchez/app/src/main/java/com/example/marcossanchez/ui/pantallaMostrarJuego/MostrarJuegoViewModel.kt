@@ -5,9 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.marcossanchez.constantes.Constantes
-import com.example.marcossanchez.domain.Usecases.videojuegos.DeleteVideojuego
-import com.example.marcossanchez.domain.Usecases.videojuegos.GetVideoJuegos
-import com.example.marcossanchez.domain.Usecases.videojuegos.UpdateVideojuego
+import com.example.marcossanchez.domain.usecases.videojuegos.DeleteVideojuego
+import com.example.marcossanchez.domain.usecases.videojuegos.GetVideoJuegos
+import com.example.marcossanchez.domain.usecases.videojuegos.UpdateVideojuego
 import com.example.marcossanchez.domain.modelo.Videojuego
 import com.example.marcossanchez.ui.common.UiEvent
 
@@ -43,11 +43,13 @@ class MostrarJuegoViewModel(
         } else
             _uiState.value = _uiState.value?.copy(videojuego = videojuego) ?: MostrarJuegoState(videojuego)
     }
-    fun updateVideojuego(videojuego: Videojuego) {
+    fun updateVideojuego(videojuego: Videojuego): Boolean {
         if (!updateVideojuegoUseCase(videojuego)) {
             _uiState.value = _uiState
                 .value?.copy(event = UiEvent.ShowSnackbar(Constantes.ERROR))
-        }
+            return false
+        }else
+            return true
     }
 }
 
