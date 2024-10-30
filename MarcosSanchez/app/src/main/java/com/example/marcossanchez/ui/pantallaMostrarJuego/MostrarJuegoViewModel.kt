@@ -37,7 +37,7 @@ class MostrarJuegoViewModel(
     }
     fun getVideojuegoPorNombre(nombre: String?) {
         val videojuegos = getVideojuegos()
-        val videojuego = videojuegos.stream().filter({ it.nombre == nombre }).findFirst().orElse(null)
+        val videojuego = videojuegos.stream().filter{ it.nombre == nombre }.findFirst().orElse(null)
         if (videojuego == null) {
             _uiState.value?.copy(event = UiEvent.ShowSnackbar(Constantes.ERROR))
         } else

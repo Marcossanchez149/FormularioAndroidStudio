@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.marcossanchez.R
 import com.example.marcossanchez.data.Repository
 import com.example.marcossanchez.databinding.ActivityMainBinding
-import com.example.marcossanchez.domain.usecases.videojuegos.GetVideoJuegos
 import com.example.marcossanchez.domain.modelo.Videojuego
+import com.example.marcossanchez.domain.usecases.videojuegos.GetVideoJuegos
 import com.example.marcossanchez.ui.common.MarginItemDecoration
 import com.example.marcossanchez.ui.pantallaAnadirJuegos.AnadirJuegoActivity
 

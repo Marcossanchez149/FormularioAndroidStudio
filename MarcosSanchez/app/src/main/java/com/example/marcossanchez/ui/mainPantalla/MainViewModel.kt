@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.marcossanchez.domain.usecases.videojuegos.GetVideoJuegos
 
 class MainViewModel(
-    val getVideoJuegos: GetVideoJuegos,
+    private val getVideoJuegos: GetVideoJuegos,
 
     ) : ViewModel() {
 
@@ -22,10 +22,6 @@ class MainViewModel(
         _uiState.value = _uiState.value?.copy(videojuegos = getVideoJuegos.invoke())
     }
 
-
-    fun mostrarError() {
-        _uiState.value = _uiState.value?.copy(error = null)
-    }
 
 }
 
